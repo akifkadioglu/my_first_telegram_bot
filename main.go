@@ -30,11 +30,11 @@ func main() {
 			continue
 		}
 
-		model := replicate.NewModel("stability-ai", "stable-diffusion", os.Getenv("DALL_E_MINI_VERSION"))
+		model := replicate.NewModel("stability-ai", "stable-diffusion", os.Getenv("AI_VERSION"))
 
 		model.Input["prompt"] = update.Message.Text
 		model.Input["num_outputs"] = 1
-		client := replicate.NewClient(os.Getenv("DALL_E_MINI_API"), model)
+		client := replicate.NewClient(os.Getenv("AI_API"), model)
 		err := client.Create()
 		if err != nil {
 			fmt.Println("bir hata")
